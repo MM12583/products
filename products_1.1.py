@@ -47,6 +47,7 @@ def main() :
         print('找到檔案')
         buy_list = read_file(filename) # 檔名用字串
     else :
+        buy_list = []
         print('找不到檔案')
 
     buy_list = user_input(buy_list)

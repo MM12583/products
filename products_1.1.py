@@ -1,4 +1,4 @@
-# 檢查檔案,並讀取
+# 讀取檔案
 def read_file(filename) : # 設定參數為函式內使用資料
     buy_list = []
     with open (filename, 'r', encoding = 'utf-8') as t :
@@ -11,7 +11,6 @@ def read_file(filename) : # 設定參數為函式內使用資料
 
 #讓使用者輸入
 def user_input(buy_list) :
-    buy_list = []
     while True :
         product = input('請輸入商品名稱: ')
         if product == 'q' :
@@ -21,10 +20,10 @@ def user_input(buy_list) :
     return buy_list
 
 # 寫入檔案
-def write_file(filename, buy_list_f) :
+def write_file(filename, buy_list) :
     with open (filename, 'w', encoding = 'utf-8') as f :  
         f.write('商品名,價格\n')
-        for x in buy_list_f :    
+        for x in buy_list :    
             f.write(x[0] + ',' + str(x[1]) + '\n')
 
 # 印出所購買商品
@@ -51,7 +50,7 @@ def main() :
         print('找不到檔案')
 
     buy_list = user_input(buy_list)
-    write_file('products_f.csv', buy_list)
     print_products(buy_list)
     print_sum(buy_list)
+    write_file('products_f.csv', buy_list)
 main()
